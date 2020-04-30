@@ -1,5 +1,5 @@
 /**
- * @author Xinshuai
+ * @author qimok
  * @description 题目链接：https://leetcode-cn.com/problems/find-in-mountain-array/
  * @since 2020-04-29 13:02
  */
