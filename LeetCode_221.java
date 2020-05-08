@@ -42,11 +42,11 @@ public class LeetCode_221 {
             int maxSide = 0;
             int[] dp = new int[matrix[0].length + 1];
             int northWest; // 西北角/左上角
-            for (char[] c : matrix) {
+            for (char[] chars : matrix) {
                 northWest = 0;
                 for (int col = 0; col < matrix[0].length; col++) {
                     int nextNorthWest = dp[col + 1];
-                    if (c[col] == '1') {
+                    if (chars[col] == '1') {
                         dp[col + 1] = Math.min(Math.min(dp[col], dp[col + 1]), northWest) + 1;
                         maxSide = Math.max(maxSide, dp[col + 1]);
                     } else {
