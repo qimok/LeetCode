@@ -79,5 +79,28 @@ public class LeetCode_3 {
             return ans;
         }
 
+        /**
+         * 欢动窗口：借助数组
+         */
+        public int lengthOfLongestSubstring4(String s) {
+            if (s == null || s.isEmpty()) return 0;
+            char[] sArr = s.toCharArray();
+            // 建立一个 128 位大小的整型数组，用来建立字符和其出现位置之间的映射
+            int[] hash = new int[128];
+            int left = 0, result = Integer.MIN_VALUE;
+            for (int right = 0; right < sArr.length; right++) {
+                // 拿到当前字符的 ASCII，并定位到 hash 数组的下标位置，对结果++
+                hash[sArr[right]]++;
+                // 如果当前遍历到的字符出现过，拿到其 ASCII，定位到 hash 数组的下标位置，对结果--，并缩小窗口（左指针向右移动）
+                while (hash[sArr[right]] != 1) {
+                    hash[sArr[left]]--;
+                    left++;
+                }
+                // 获取无重复字符串的最大长度
+                result = Math.max(result, right - left + 1);
+            }
+            return result;
+        }
+
     }
 }
