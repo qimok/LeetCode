@@ -2,8 +2,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @author Xinshuai
- * @description
+ * @author qimok
+ * @description 题目链接：https://leetcode-cn.com/problems/merge-k-sorted-lists/
  * @since 2020-04-26 14:00
  */
 public class LeetCode_23 {
