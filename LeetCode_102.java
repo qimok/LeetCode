@@ -59,8 +59,8 @@ public class LeetCode_102 {
                 int size = queue.size();
                 while (size > 0) {
                     TreeNode curr = queue.poll();
+                    size--; // 出队一个元素，size--
                     level.add(curr.val);
-                    size--;
                     // 依次将下一层的节点入队
                     if (curr.left != null) {
                         queue.offer(curr.left);
