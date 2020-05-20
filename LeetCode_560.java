@@ -34,10 +34,10 @@ public class LeetCode_560 {
          *     pre[i] = pre[i − 1] + nums[i]
          *
          *     那么 "[j..i] 这个子数组和为 k" 这个条件我们可以转化为
-         *     pre[i] − pre[j − 1] == k
+         *     pre[i] − pre[j − 1] = k
          *
          *     简单移项可得符合条件的下标 j 需要满足
-         *     pre[j − 1] == pre[i] − k
+         *     pre[j − 1] = pre[i] − k
          *     所以，我们考虑以 i 结尾的和为 k 的连续子数组个数时只要统计有多少个前缀和为 pre[i] − k 的 pre[j] 即可
          *
          *     建立哈希表 map，以和为键，出现次数为对应的值，记录 pre[i] 出现的次数，从左往右边更新 map 边计算答案，
