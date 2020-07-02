@@ -3,8 +3,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @author Xinshuai
- * @description
+ * @author qimok
+ * @description 题目链接：https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/solution/
  * @since 2020-07-02 13:13
  */
 public class LeetCode_378 {
