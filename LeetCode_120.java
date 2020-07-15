@@ -50,7 +50,7 @@ public class LeetCode_120 {
          * dp
          * <p>
          *     1、状态定义：
-         *     dp[i][j]dp[i][j] 表示从点 (i, j)(i,j) 到底边的最小路径和。
+         *     dp[i][j] 表示从点 (i, j) 到底边的最小路径和。
          *     2、状态转移：
          *     dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j]
          */
