@@ -24,7 +24,7 @@ public class LeetCode_312 {
             }
             // base case 已经都被初始化为 0
             int[][] dp = new int[n + 2][n + 2];
-            // 开始状态转移
+            // 开始状态转移（对于任一 dp[i][j]，希望所有 dp[i][k] 和 dp[k][j] 已经被计算，故要么斜着遍历，要么从下到上从左到右遍历）
             // i 应该从下往上
             for (int i = n; i >= 0; i--) {
                 // j 应该从左往右
