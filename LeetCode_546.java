@@ -1,5 +1,5 @@
 /**
- * @author Xinshuai
+ * @author qimok
  * @description 题目链接：https://leetcode-cn.com/problems/remove-boxes/
  * @since 2020-08-15
  */
