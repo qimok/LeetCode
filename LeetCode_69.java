@@ -1,6 +1,6 @@
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/sqrtx/submissions/
+ * @description 题目链接：https://leetcode-cn.com/problems/sqrtx/
  * @since 2020-05-09 13:23
  */
 public class LeetCode_69 {

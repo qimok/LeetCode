@@ -1,6 +1,6 @@
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/happy-number/submissions/
+ * @description 题目链接：https://leetcode-cn.com/problems/happy-number/
  * @since 2020-04-30 13:33
  */
 public class LeetCode_202 {

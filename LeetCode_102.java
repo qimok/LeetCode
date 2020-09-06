@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal/submissions/
+ * @description 题目链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
  * @since 2020-05-13 13:45
  */
 public class LeetCode_102 {

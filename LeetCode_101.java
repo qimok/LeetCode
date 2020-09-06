@@ -3,7 +3,7 @@ import java.util.Queue;
 
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/symmetric-tree/submissions/
+ * @description 题目链接：https://leetcode-cn.com/problems/symmetric-tree/
  * @since 2020-05-31 00:18
  */
 public class LeetCode_101 {

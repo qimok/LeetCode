@@ -1,6 +1,6 @@
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/diving-board-lcci/submissions/
+ * @description 题目链接：https://leetcode-cn.com/problems/diving-board-lcci/
  * @since 2020-07-08 10:24
  */
 public class LeetCode_16_11 {

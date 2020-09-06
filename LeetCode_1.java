@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/two-sum/submissions/
+ * @description 题目链接：https://leetcode-cn.com/problems/two-sum/
  * @since 2020-05-07 13:36
  */
 public class LeetCode_1 {

@@ -5,7 +5,6 @@
  */
 public class LeetCode_stock {
 
-
     /**
      * 股票问题：
      * <p>
@@ -127,10 +126,10 @@ public class LeetCode_stock {
 
         /**
          * >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> k = +infinity with cooldown <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-         * 题目链接[309题]：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/submissions/
+         * 题目链接[309题]：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
          * dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
          * dp[i][1] = max(dp[i-1][1], dp[i-2][0] - prices[i])
-         * 解释：第 i 天选择 buy 的时候，要从 i-2 的状态转移，而不是 i-1 。
+         * 解释：由于存在冷冻期，第 i 天选择 buy 的时候，要从 i-2 的状态转移，而不是 i-1 。
          */
         public int maxProfit4(int[] prices) {
             int len = prices.length;
@@ -150,7 +149,7 @@ public class LeetCode_stock {
 
         /**
          * >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> k = +infinity with fee <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-         * 题目链接[714题]：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/submissions/
+         * 题目链接[714题]：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
          * 每次交易要支付手续费，只要把手续费从利润中减去即可。改写方程：
          *
          * dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
@@ -167,7 +166,7 @@ public class LeetCode_stock {
             for (int i = 0; i < len; i++) {
                 int temp = dp_i_0;
                 dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);
-                dp_i_1 = Math.max(dp_i_1, dp_i_1 - prices[i] - fee);
+                dp_i_1 = Math.max(dp_i_1, temp - prices[i] - fee);
             }
             return dp_i_0;
         }
@@ -201,8 +200,8 @@ public class LeetCode_stock {
 
         /**
          * >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> k = any integer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-         * 题目链接[188题]：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/submissions/
-         * 一次交易由买入和卖出构成，至少需要两天。所以说有效的限制 k 应该不超过 n/2，如果超过，就没有约束作用了，相当于 k = +infinity
+         * 题目链接[188题]：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
+         * 一次交易由买入和卖出构成，至少需要两天。所以说有效的限制 k 应该不超过 len/2，如果超过，就没有约束作用了，相当于 k = +infinity
          */
         public int maxProfit(int k, int[] prices) {
             int len = prices.length;
