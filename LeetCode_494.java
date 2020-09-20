@@ -9,6 +9,9 @@ public class LeetCode_494 {
 
         int count = 0;
 
+        /**
+         * 递归
+         */
         public int findTargetSumWays1(int[] nums, int S) {
             calculate(nums, 0, 0 , S);
             return count;
