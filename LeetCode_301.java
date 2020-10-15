@@ -82,7 +82,7 @@ public class LeetCode_301 {
                     return false;
                 }
             }
-            return true;
+            return count == 0;
         }
 
         private int[] computeInvalidCount(char[] str) {
