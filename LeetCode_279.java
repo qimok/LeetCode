@@ -11,7 +11,7 @@ public class LeetCode_279 {
         /**
          * dp
          * <p>
-         *     dp[n] 表示"和"能组成 n 的平方数的最小数量
+         *     dp[n] 的定义：输入一个目标值 n，返回凑出目标值 n 的最少的平方数的数量
          *     动态转移方程：dp[i] = Math.min(dp[i], dp[i - j * j] + 1)
          */
         public int numSquares(int n) {
