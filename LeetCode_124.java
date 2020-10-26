@@ -5,16 +5,6 @@
  */
 public class LeetCode_124 {
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     class Solution {
 
         // 初始值必须是 Integer.MIN_VALUE，防止全部节点为负数的情况

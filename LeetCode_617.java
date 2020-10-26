@@ -9,13 +9,6 @@ public class LeetCode_617 {
 
     class Solution {
 
-        public class TreeNode {
-            int val;
-            TreeNode left;
-            TreeNode right;
-            TreeNode(int x) { val = x; }
-        }
-
         /**
          * 递归
          * <p>
