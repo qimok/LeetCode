@@ -7,12 +7,6 @@ import java.util.*;
  */
 public class LeetCode_25 {
 
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     class Solution {
 
         /**

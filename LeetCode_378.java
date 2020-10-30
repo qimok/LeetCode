@@ -26,10 +26,9 @@ public class LeetCode_378 {
 
         public int kthSmallest2(int[][] matrix, int k) {
             // 1、定义小根堆的比较函数
-            PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-            int rowLen = matrix.length;
+            PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
             // 2、把每一列的第一个元素放入小根堆
-            for (int i = 0; i < rowLen; i++) {
+            for (int i = 0; i < matrix.length; i++) {
                 // 记录 数组（含三个元素） 数值 横坐标 纵坐标
                 pq.offer(new int[]{matrix[i][0], i, 0});
             }
@@ -37,7 +36,7 @@ public class LeetCode_378 {
             // 出栈 k-1 次 再取栈顶的时候就为第k个最小堆
             for (int i = 0; i < k - 1; i++) {
                 int[] now = pq.poll();
-                if (now[2] != rowLen - 1) {
+                if (now[2] < matrix[0].length - 1) {
                     // 把栈顶旁边的数添加到队列进行比较
                     pq.offer(new int[]{matrix[now[1]][now[2] + 1], now[1], now[2] + 1});
                 }
