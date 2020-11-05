@@ -16,32 +16,34 @@ public class LeetCode_25 {
          *     这里要注意几个问题：
          *          第一，剩下的链表个数够不够 k 个（因为不够 k 个不用翻转）
          *          第二，已经翻转的部分要与剩下链表连接起来
-         *
-         *     从功能上来讲，LinkedList、ArrayDeque 都可以作为栈和队列
-         *     从执行效率上来将，LinkedList作为栈、ArrayDeque 作为队列
          */
         public ListNode reverseKGroup1(ListNode head, int k) {
-            LinkedList<ListNode> stack = new LinkedList();
-            ListNode dummy = new ListNode(0);
-            ListNode curr = dummy;
-            while (true) {
-                int count = 0;
-                ListNode temp = head;
-                while (temp != null &&  count < k) {
-                    stack.addLast(temp);
-                    temp = temp.next;
-                    count++;
+            if (head == null || k <= 0) {
+                return head;
+            }
+            ListNode dummy = new ListNode(-1);
+            dummy.next = head;
+            ListNode cur = dummy;
+            Stack<ListNode> stack = new Stack<>();
+            int n = k;
+            while (cur != null && cur.next != null) {
+                ListNode tmp = cur.next;
+                while (tmp != null && n > 0) {
+                    stack.add(tmp);
+                    tmp = tmp.next;
+                    n--;
                 }
-                if (count != k) {
-                    curr.next = head;
+                ListNode nextHead = stack.peek().next;
+                if (n == 0) {
+                    while (stack.size() > 0) {
+                        cur.next = stack.pop();
+                        cur = cur.next;
+                    }
+                } else {
                     break;
                 }
-                while (!stack.isEmpty()) {
-                    curr.next = stack.pollLast();
-                    curr = curr.next;
-                }
-                curr.next = temp;
-                head = temp;
+                cur.next = nextHead;
+                n = k;
             }
             return dummy.next;
         }
