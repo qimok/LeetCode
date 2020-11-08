@@ -48,12 +48,10 @@ public class LeetCode_300 {
                 int left = 0, right = piles;
                 while (left < right) {
                     int mid = left + (right - left) / 2;
-                    if (top[mid] > poker) {
+                    if (top[mid] >= poker) {
                         right = mid;
-                    } else if (top[mid] < poker) {
-                        left = mid + 1;
                     } else {
-                        right = mid;
+                        left = mid + 1;
                     }
                 }
                 if (left == piles) {
