@@ -38,7 +38,7 @@ public class LeetCode_128 {
         }
 
         Set<Integer> checkInNums = new HashSet<>(); // 初始化 Set 用来判断数据是否在 nums 中
-        Map<Integer, Integer> map = new HashMap<>(); // 备忘录
+        Map<Integer, Integer> map = new HashMap<>(); // 备忘录（key：当前数，value：小于等于当前数的最大连续序列的长度）
 
         /**
          * dfs
@@ -47,19 +47,20 @@ public class LeetCode_128 {
             if (nums.length == 0) {
                 return 0;
             }
-            for (int i = 0; i < nums.length; i++) {
-                checkInNums.add(nums[i]);
+            for (int num : nums) {
+                checkInNums.add(num);
             }
             int ans = 0;
-            for (int i = 0; i < nums.length; i++) {
-                ans = Math.max(ans, dfs(nums[i]));
+            for (int num : nums) {
+                ans = Math.max(ans, dfs(num));
             }
             return ans;
         }
 
-        //返回小于等于当前数的最大连续序列的长度
+        // 返回小于等于当前数的最大连续序列的长度
         public int dfs(int currNum) {
             if (map.containsKey(currNum)) {
+                // 返回等于当前数的最大连续序列的长度
                 return map.get(currNum);
             }
             int len = 1; // 初始长度为 1
