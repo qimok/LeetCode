@@ -67,10 +67,10 @@ public class LeetCode_145 {
                  */
                 output.addFirst(node.val); // 在列表首部添加元素
                 if (node.left != null) {
-                    stack.add(node.left); // 在列表的末尾添加元素
+                    stack.addLast(node.left); // 在列表的末尾添加元素
                 }
                 if (node.right != null) {
-                    stack.add(node.right); // 在列表的末尾添加元素
+                    stack.addLast(node.right); // 在列表的末尾添加元素
                 }
             }
             /**
