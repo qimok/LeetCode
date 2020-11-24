@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author qimok
  * @description 题目链接：https://leetcode-cn.com/problems/minimum-window-substring/
@@ -8,7 +11,7 @@ public class LeetCode_76 {
     class Solution {
 
         public String minWindow(String s, String t) {
-            if (t.length() > s.length()) {
+            if (s == null || t == null || s.length() == 0 || t.length() == 0 || t.length() > s.length()) {
                 return "";
             }
             // 定义一个数组，用来记录字符串 t 中出现字符的频率，也就是窗口内需要匹配的字符和相应的频率
