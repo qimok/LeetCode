@@ -82,7 +82,7 @@ public class LeetCode_3 {
         }
 
         /**
-         * 欢动窗口：借助数组
+         * 滑动窗口：借助数组
          */
         public int lengthOfLongestSubstring4(String s) {
             char[] chars = s.toCharArray();
