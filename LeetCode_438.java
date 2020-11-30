@@ -1,35 +1,59 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author qimok
- * @description 题目链接：https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
- * @since 2020-07-22
+ * @description 题目链接：https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/
+ * @since 2020-11-27
  */
-public class LeetCode_11 {
+public class LeetCode_438 {
 
     class Solution {
 
-        /**
-         * 二分查找
-         * <p>
-         *     思考： 是否可以用 numbers[m] 和 numbers[i] 比较做代替？
-         *     解析： 不可以。因为做比较的目的是判断 m 在哪个排序数组中。但在 numbers[m] > numbers[i] 情况下，无法判断 m 在哪个排序数组中。
-         *     本质是因为 j 初始值肯定在右排序数组中； i 初始值无法确定在哪个排序数组中。
-         *     示例： 当 i = 0, j = 4, m = 2 时，有 numbers[m] > numbers[i] ，以下两示例得出不同结果。
-         *     numbers = [1, 2, 3, 4 ,5] 旋转点 x = 0 ： m 在右排序数组（此示例只有右排序数组）；
-         *     numbers = [3, 4, 5, 1 ,2] 旋转点 x = 3 ： m 在左排序数组
-         */
-        public int minArray(int[] numbers) {
-            int i = 0, j = numbers.length - 1;
-            while (i < j) {
-                int m = i + (j - i) / 2;
-                if (numbers[m] > numbers[j]) {
-                    i = m + 1;
-                } else if (numbers[m] < numbers[j]) {
-                    j = m;
-                } else {
-                    j--;
+        public List<Integer> findAnagrams(String s, String p) {
+            List<Integer> res = new ArrayList<>();
+            if (s.length() == 0 || s.length() < p.length()) {
+                return res;
+            }
+            // 定义一个数组，用来记录字符串 s 中出现字符的频率，也就是窗口内需要匹配的字符和相应的频率
+            int[] need = new int[128];
+            for (char c : p.toCharArray()) {
+                need[c]++;
+            }
+            int left = 0, right = 0;
+            // 匹配字符的个数
+            int matcher = 0;
+            while (right < s.length()) {
+                // 右边界的那个字符
+                char c = s.charAt(right);
+                // 可以理解为需要匹配的字符 c 减少了一个
+                need[c]--;
+                // 若字符 c 在 s 中存在，那么经过上一步操作，只要个数还大于等于 0，说明匹配了一个
+                // 若字符 c 在 s 中不存在，那么经过上一步操作，若个数小于 0，不进行任何操作
+                if (need[c] >= 0) {
+                    matcher++;
+                }
+                // 右边界右移，这样下面就变成了左开右闭区间，方便计算窗口大小：right - left
+                right++;
+                // 只要窗口内匹配的字符达到了要求，右边界固定，左边界收缩
+                while (right - left == p.length()) {
+                    if (matcher == p.length()) {
+                        res.add(left);
+                    }
+                    // 左边界的那个字符
+                    char d = s.charAt(left);
+                    // 左边界的字符要移出窗口
+                    need[d]++;
+                    // 不在 s 中出现的字符，移出窗口，最终能够达到的最大值 need[d] = 0（因为前面有 need[c]--，上一步有 need[d]++，这里的 c 和 d 是同一个字符）
+                    // 如果恰好移出了需要匹配的一个字符，那么这里 nee[d] > 0, 也就是还要匹配字符 d，此时 match--
+                    if (need[d] > 0) {
+                        matcher--;
+                    }
+                    // 左边界收缩
+                    left++;
                 }
             }
-            return numbers[i]; // 返回 i, j 都可以
+            return res;
         }
 
     }
