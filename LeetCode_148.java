@@ -44,20 +44,20 @@ public class LeetCode_148 {
             // 自顶向下
             ListNode left = sortList(head);
             ListNode right = sortList(temp);
-            ListNode h = new ListNode(0);
-            ListNode res = h;
+            ListNode dummy = new ListNode(0);
+            ListNode res = dummy;
             while (left != null && right != null) {
                 if (left.val < right.val) {
-                    h.next = left;
+                    res.next = left;
                     left = left.next;
                 } else {
-                    h.next = right;
+                    res.next = right;
                     right = right.next;
                 }
-                h = h.next;
+                res = res.next;
             }
-            h.next = left != null ? left : right;
-            return res.next;
+            res.next = left != null ? left : right;
+            return dummy.next;
         }
 
     }
