@@ -24,7 +24,7 @@ public class LeetCode_102 {
         private void inorderTraverse(List<List<Integer>> res, int depth, TreeNode curr) {
             if (curr != null) { // 递归终止条件
                 if (res.size() == depth) {
-                    // 刚到一层时需要给 res 中增加 List<Integer>
+                    // 刚到一层时，需要给 res 中增加 new ArrayList<>()
                     res.add(new ArrayList<>());
                 }
                 res.get(depth).add(curr.val); // 处理当前层逻辑
